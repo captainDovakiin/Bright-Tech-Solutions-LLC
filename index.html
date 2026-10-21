@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bright Tech Solutions LLC | Solutions Made Simple</title>
+  <meta name="description" content="Bright Tech Solutions LLC delivers simple, reliable IT support, networking, security, and cloud solutions for businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f6f8fb;
+      --ink: #0f2a43;
+      --cobalt: #1f5eff;
+      --sun: #ffc933;
+      --mist: #d9e2ee;
+      --muted: #4a6078;
+      --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+    .wrap { width: min(1100px, 100% - 3rem); margin-inline: auto; }
+
+    /* Hero */
+    .hero { background: var(--cobalt); color: #fff; padding-bottom: 4.5rem; }
+    .nav {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 1rem; padding-block: 1.5rem;
+    }
+    .brand { font-family: var(--display); font-weight: 700; font-size: 1.2rem; text-decoration: none; }
+    .nav ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+    .nav a { text-decoration: none; font-weight: 500; }
+    .nav ul a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .hero h1 {
+      font-family: var(--display); font-weight: 700;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      line-height: 1; letter-spacing: -0.03em;
+      margin: 4rem 0 1.25rem;
+    }
+    .hero .tagline { font-size: 1.25rem; max-width: 36ch; margin: 0 0 2.25rem; }
+    .btn {
+      display: inline-block; background: var(--sun); color: var(--ink);
+      font-weight: 600; text-decoration: none;
+      padding: 0.85rem 1.6rem; border-radius: 999px;
+    }
+    .btn:hover { background: #fff; }
+    .line { display: block; width: 100%; height: auto; margin-top: 3.5rem; overflow: visible; }
+    .line .path {
+      fill: none; stroke: #fff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 1; stroke-dashoffset: 1;
+      animation: draw 3.2s cubic-bezier(.5, 0, .3, 1) 0.3s forwards;
+    }
+    .line .dot { fill: var(--sun); opacity: 0; animation: pop 0.4s ease-out 3.3s forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes pop { to { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .line .path { animation: none; stroke-dashoffset: 0; }
+      .line .dot { animation: none; opacity: 1; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Sections */
+    section { padding-block: 5rem; }
+    h2 {
+      font-family: var(--display); font-weight: 700;
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 0.75rem;
+    }
+    .lede { color: var(--muted); max-width: 52ch; margin: 0 0 2.5rem; }
+
+    /* Services */
+    .services { margin: 0; }
+    .service {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: 1rem 3rem; padding-block: 1.5rem; border-top: 2px solid var(--mist);
+    }
+    .service:last-child { border-bottom: 2px solid var(--mist); }
+    .service dt { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.2; }
+    .service dd { margin: 0; color: var(--muted); max-width: 60ch; }
+
+    /* About */
+    .about { background: var(--ink); color: #fff; }
+    .about .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 3rem; }
+    .about h2 { margin: 0; }
+    .about p { margin: 0 0 1.25rem; max-width: 60ch; color: #d3deea; }
+    .about p:last-child { margin-bottom: 0; }
+    .mission { font-family: var(--display); font-size: 1.35rem; line-height: 1.35; color: #fff !important; font-weight: 500; }
+
+    /* Contact */
+    .contact .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .contact p { margin: 0; color: var(--muted); max-width: 46ch; }
+    .contact .btn { background: var(--cobalt); color: #fff; }
+    .contact .btn:hover { background: var(--ink); }
+
+    footer { border-top: 2px solid var(--mist); padding-block: 2rem; color: var(--muted); font-size: 0.95rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; }
+
+    @media (max-width: 760px) {
+      .service, .about .cols { grid-template-columns: 1fr; gap: 0.5rem; }
+      .about .cols { gap: 1.5rem; }
+      section { padding-block: 3.5rem; }
+      .hero h1 { margin-top: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main">
+        <a class="brand" href="#top">Bright Tech Solutions</a>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <h1 id="top">Solutions<br>made simple.</h1>
+      <p class="tagline">Reliable IT. Practical solutions. Better business.</p>
+      <a class="btn" href="#contact">Get in touch</a>
+
+      <svg class="line" viewBox="0 0 600 180" role="img" aria-label="A tangled line that straightens out, showing complicated technology made simple">
+        <path class="path" pathLength="1" d="M10 110 C 50 10, 100 10, 95 90 C 90 170, 20 150, 70 80 C 120 10, 170 60, 160 110 C 150 170, 110 170, 140 110 C 170 50, 230 70, 240 110 L 585 110"/>
+        <circle class="dot" cx="590" cy="110" r="9"/>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+    <section id="services">
+      <div class="wrap">
+        <h2>What we help with</h2>
+        <p class="lede">Technology support for businesses that want things to work and want to understand why.</p>
+        <dl class="services">
+          <div class="service">
+            <dt>IT support &amp; troubleshooting</dt>
+            <dd>We resolve computer, software, and everyday technology issues so your team can get back to work.</dd>
+          </div>
+          <div class="service">
+            <dt>Networking &amp; connectivity</dt>
+            <dd>We set up and support your network and Wi-Fi, so your business communications stay reliable.</dd>
+          </div>
+          <div class="service">
+            <dt>Technology security</dt>
+            <dd>We help you improve device security, protect your data, and build safe technology habits.</dd>
+          </div>
+          <div class="service">
+            <dt>Cloud &amp; technology solutions</dt>
+            <dd>We help you choose and set up cloud tools and software, and make practical improvements to how you work.</dd>
+          </div>
+          <div class="service">
+            <dt>IT consulting &amp; technology setup</dt>
+            <dd>We recommend and configure technology that fits your business needs and goals.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="wrap cols">
+        <div>
+          <h2>About us</h2>
+        </div>
+        <div>
+          <p class="mission">Our mission is to simplify technology with dependable IT solutions, responsive support, and personalized service.</p>
+          <p>Bright Tech Solutions LLC was founded on the belief that technology should make business easier, not more complicated. We help businesses work through technology challenges with practical solutions, dependable support, and a customer-first approach.</p>
+          <p>From everyday IT needs to better connectivity and protecting important information, our goal is to make technology work better for every customer we serve.</p>
+          <p>We build lasting relationships through honest communication, reliable service, and solutions tailored to each client’s needs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <div>
+          <h2>Talk to us</h2>
+          <p>Tell us what’s not working or what you’d like to set up, and we’ll help you find a simple way forward.</p>
+        </div>
+        <!-- TODO: replace this placeholder with your real business email -->
+        <a class="btn" href="mailto:hello@example.com">Email us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Bright Tech Solutions LLC</span>
+      <span>Solutions made simple.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
