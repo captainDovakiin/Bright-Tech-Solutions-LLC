@@ -67,14 +67,25 @@
     .line .path {
       fill: none; stroke: #fff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;
       stroke-dasharray: 1; stroke-dashoffset: 1;
-      animation: draw 3.2s cubic-bezier(.5, 0, .3, 1) 0.3s forwards;
+      animation: draw 5.2s cubic-bezier(.45, 0, .25, 1) 0.2s forwards;
     }
-    .line .dot { fill: var(--sun); opacity: 0; animation: pop 0.4s ease-out 3.3s forwards; }
+    .line .plug {
+      opacity: 0;
+      animation: plug-in 0.9s cubic-bezier(.2, .8, .2, 1) 5.4s forwards;
+    }
+    .line .connected { opacity: 0; animation: light-on 0.3s ease-out 6.35s forwards; }
     @keyframes draw { to { stroke-dashoffset: 0; } }
-    @keyframes pop { to { opacity: 1; } }
+    @keyframes plug-in {
+      0% { opacity: 0; transform: translateX(-12px); }
+      18% { opacity: 1; }
+      76% { opacity: 1; transform: translateX(28px); }
+      100% { opacity: 1; transform: translateX(24px); }
+    }
+    @keyframes light-on { to { opacity: 1; } }
     @media (prefers-reduced-motion: reduce) {
       .line .path { animation: none; stroke-dashoffset: 0; }
-      .line .dot { animation: none; opacity: 1; }
+      .line .plug { animation: none; opacity: 1; transform: translateX(24px); }
+      .line .connected { animation: none; opacity: 1; }
       html { scroll-behavior: auto; }
     }
 
@@ -134,7 +145,7 @@
         <ul>
           <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="quote.html">Get a Quote</a></li>
         </ul>
       </nav>
 
@@ -142,9 +153,23 @@
       <p class="tagline">Reliable IT. Practical solutions. Better business.</p>
       <a class="btn" href="#contact">Get in touch</a>
 
-      <svg class="line" viewBox="0 0 600 180" role="img" aria-label="A tangled line that straightens out, showing complicated technology made simple">
-        <path class="path" pathLength="1" d="M10 110 C 50 10, 100 10, 95 90 C 90 170, 20 150, 70 80 C 120 10, 170 60, 160 110 C 150 170, 110 170, 140 110 C 170 50, 230 70, 240 110 L 585 110"/>
-        <circle class="dot" cx="590" cy="110" r="9"/>
+      <svg class="line" viewBox="0 0 700 180" role="img" aria-label="A tangled network cable straightens, then its connector plugs into an Ethernet port and the connected indicator lights up">
+        <g transform="translate(0 19)">
+          <rect x="580" y="42" width="110" height="96" rx="8" fill="rgba(7,20,31,0.48)" stroke="#fff" stroke-width="4"/>
+          <path d="M602 66h67v50h-67z" fill="rgba(7,20,31,0.75)" stroke="#fff" stroke-width="3"/>
+          <path d="M613 76h44v21h-44z" fill="#07141f" stroke="#ffc933" stroke-width="2"/>
+          <circle class="connected" cx="665" cy="54" r="6" fill="#ffc933"/>
+        </g>
+        <path class="path" pathLength="1" d="M10 110 C 50 10, 100 10, 95 90 C 90 170, 20 150, 70 80 C 120 10, 170 60, 160 110 C 150 170, 110 170, 140 110 C 170 50, 230 70, 240 110 L 572 110"/>
+        <g class="plug">
+          <path d="M550 103h16v14h-16z" fill="#0f2a43" stroke="#fff" stroke-width="3"/>
+          <path d="M563 96h39v28h-39z" fill="#0f2a43" stroke="#fff" stroke-width="3"/>
+          <path d="M602 101h20v18h-20z" fill="#ffc933" stroke="#fff" stroke-width="2"/>
+          <path d="M568 96v-7h22l7 7m-29 28v7h22l7-7" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+          <g stroke="#ffc933" stroke-width="2">
+            <path d="M570 101v16m7-16v16m7-16v16"/>
+          </g>
+        </g>
       </svg>
     </div>
   </header>
@@ -196,11 +221,11 @@
     <section id="contact" class="contact">
       <div class="wrap">
         <div>
-          <h2>Talk to us</h2>
-          <p>Tell us what’s not working or what you’d like to set up, and we’ll help you find a simple way forward.</p>
+          <h2>Get a quote</h2>
+          <p>Tell us what your business needs, and we’ll recommend a practical solution and provide a quote.</p>
         </div>
         <!-- TODO: replace this placeholder with your real business email -->
-        <a class="btn" href="mailto:hello@example.com">Email us</a>
+        <a class="btn" href="quote.html">Request a quote</a>
       </div>
     </section>
   </main>

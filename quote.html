@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request a Quote | Bright Tech Solutions LLC</title>
+  <meta name="description" content="Tell Bright Tech Solutions about your business technology needs and request a quote.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f6f8fb;
+      --ink: #0f2a43;
+      --cobalt: #1f5eff;
+      --sun: #ffc933;
+      --mist: #d9e2ee;
+      --muted: #4a6078;
+      --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+    .wrap { width: min(1100px, 100% - 3rem); margin-inline: auto; }
+    .topbar { background: var(--ink); color: #fff; }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 5rem;
+    }
+    .brand { color: #fff; font-family: var(--display); font-weight: 700; text-decoration: none; }
+    .back { color: #fff; font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    main { padding-block: 4rem 5rem; }
+    .intro { max-width: 58ch; margin-bottom: 2rem; }
+    h1 {
+      margin: 0 0 0.75rem;
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1.05;
+    }
+    .intro p { margin: 0; color: var(--muted); }
+    form { width: min(720px, 100%); }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 1.5rem; }
+    .field { display: grid; gap: 0.4rem; }
+    .field-wide { grid-column: 1 / -1; }
+    label { font-weight: 600; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #9bacc0;
+      border-radius: 4px;
+      padding: 0.8rem 0.9rem;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+    textarea { min-height: 9rem; resize: vertical; }
+    .form-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.5rem; }
+    .submit {
+      border: 0;
+      border-radius: 4px;
+      padding: 0.9rem 1.25rem;
+      background: var(--cobalt);
+      color: #fff;
+      font: 600 1rem var(--body);
+      cursor: pointer;
+    }
+    .submit:hover { background: var(--ink); }
+    .note { max-width: 42ch; margin: 0; color: var(--muted); font-size: 0.9rem; }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 2rem, 1100px); }
+      main { padding-block: 3rem; }
+      .fields { grid-template-columns: 1fr; }
+      .field-wide { grid-column: auto; }
+      .nav { min-height: 4.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="wrap nav" aria-label="Main">
+      <a class="brand" href="index.html">Bright Tech Solutions</a>
+      <a class="back" href="index.html">Back to home</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="intro">
+      <h1>Request a quote</h1>
+      <p>Share a little about your business and what you need. We’ll use these details to follow up with a practical recommendation.</p>
+    </div>
+
+    <form id="quote-form">
+      <div class="fields">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="business">Business name</label>
+          <input id="business" name="business" autocomplete="organization" required>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone number <span>(optional)</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+        <div class="field field-wide">
+          <label for="service">What can we help with?</label>
+          <select id="service" name="service" required>
+            <option value="" selected disabled>Select a service</option>
+            <option>IT support and troubleshooting</option>
+            <option>Networking and connectivity</option>
+            <option>Technology security</option>
+            <option>Cloud and technology solutions</option>
+            <option>IT consulting and setup</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field field-wide">
+          <label for="details">Tell us about your needs</label>
+          <textarea id="details" name="details" required></textarea>
+        </div>
+      </div>
+      <div class="form-footer">
+        <button class="submit" type="submit">Continue by email</button>
+        <p class="note">Your email app will open with your quote request filled in for you to review and send.</p>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    document.querySelector("#quote-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const body = [
+        `Name: ${formData.get("name")}`,
+        `Business: ${formData.get("business")}`,
+        `Email: ${formData.get("email")}`,
+        `Phone: ${formData.get("phone") || "Not provided"}`,
+        `Service: ${formData.get("service")}`,
+        "",
+        "Project details:",
+        formData.get("details")
+      ].join("\n");
+      const subject = `Quote request from ${formData.get("business")}`;
+      window.location.href = `mailto:hello@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</body>
+</html>
