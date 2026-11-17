@@ -371,6 +371,8 @@ textarea { min-height: 9rem; resize: vertical; }
 .form-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.75rem; }
 .note { max-width: 42ch; margin: 0; color: var(--muted); font-size: 0.9rem; }
 .form-status { flex-basis: 100%; margin: 0; font-weight: 500; }
+/* Spam trap: hidden from people, but bots that fill every field will fill this one. */
+.hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .form-status:empty { display: none; }
 .form-status[data-state] { padding: 0.8rem 1rem; border-radius: var(--radius-sm); }
 .form-status[data-state="sending"] { background: var(--tint); color: var(--blue-700); }
