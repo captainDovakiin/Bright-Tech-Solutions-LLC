@@ -5,211 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bright Tech Solutions LLC | Solutions Made Simple</title>
   <meta name="description" content="Bright Tech Solutions LLC delivers simple, reliable IT support, networking, security, and cloud solutions for businesses.">
+  <meta name="theme-color" content="#041427">
+  <link rel="icon" type="image/png" href="Images/Bright_Tech_Solutions_Logo-removebg-preview.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --paper: #f6f8fb;
-      --ink: #0f2a43;
-      --cobalt: #1f5eff;
-      --sun: #ffc933;
-      --mist: #d9e2ee;
-      --muted: #4a6078;
-      --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-      --body: "Figtree", "Segoe UI", system-ui, sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--body);
-      font-size: 1.0625rem;
-      line-height: 1.6;
-    }
-    a { color: inherit; }
-    :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
-    .wrap { width: min(1100px, 100% - 3rem); margin-inline: auto; }
-
-    /* Hero */
-    .hero {
-      background:
-        linear-gradient(rgba(7, 20, 31, 0.62), rgba(7, 20, 31, 0.62)),
-        url("Images/server%20room.jpg") center / cover no-repeat;
-      color: #fff;
-      padding-bottom: 4.5rem;
-    }
-    .nav {
-      display: flex; flex-wrap: wrap; align-items: center;
-      justify-content: space-between; gap: 1rem; padding-block: 1.5rem;
-    }
-    .brand { display: inline-flex; align-items: center; gap: 0.65rem; font-family: var(--display); font-weight: 700; font-size: 1.2rem; text-decoration: none; filter: brightness(0) invert(1) }
-    .brand-mark { display: block; width: 3.5rem; height: 2.85rem; flex: 0 0 auto; object-fit: contain; }
-    .nav ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
-    .nav a { text-decoration: none; font-weight: 500; }
-    .nav ul a:hover { text-decoration: underline; text-underline-offset: 4px; }
-    .hero h1 {
-      font-family: var(--display); font-weight: 700;
-      font-size: clamp(2.8rem, 8vw, 6rem);
-      line-height: 1; letter-spacing: -0.03em;
-      margin: 4rem 0 1.25rem;
-    }
-    .hero .tagline { font-size: 1.25rem; max-width: 36ch; margin: 0 0 2.25rem; }
-    .btn {
-      display: inline-block; background: var(--sun); color: var(--ink);
-      font-weight: 600; text-decoration: none;
-      padding: 0.85rem 1.6rem; border-radius: 999px;
-    }
-    .btn:hover { background: #fff; }
-    .line { display: block; width: 100%; height: auto; margin-top: 3.5rem; overflow: visible; }
-    .line .path {
-      fill: none; stroke: #fff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;
-      stroke-dasharray: 1; stroke-dashoffset: 1;
-      animation: draw 5.2s cubic-bezier(.45, 0, .25, 1) 0.2s forwards;
-    }
-    .line .plug {
-      opacity: 0;
-      animation: plug-in 0.9s cubic-bezier(.2, .8, .2, 1) 5.4s forwards;
-    }
-    .line .connected { opacity: 0; animation: light-on 0.3s ease-out 6.35s forwards; }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    @keyframes plug-in {
-      0% { opacity: 0; transform: translateX(-12px); }
-      18% { opacity: 1; }
-      76% { opacity: 1; transform: translateX(28px); }
-      100% { opacity: 1; transform: translateX(24px); }
-    }
-    @keyframes light-on { to { opacity: 1; } }
-    @media (prefers-reduced-motion: reduce) {
-      .line .path { animation: none; stroke-dashoffset: 0; }
-      .line .plug { animation: none; opacity: 1; transform: translateX(24px); }
-      .line .connected { animation: none; opacity: 1; }
-      html { scroll-behavior: auto; }
-    }
-
-    /* Sections */
-    section { padding-block: 5rem; }
-    h2 {
-      font-family: var(--display); font-weight: 700;
-      font-size: clamp(1.9rem, 4vw, 2.75rem);
-      line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 0.75rem;
-    }
-    .lede { color: var(--muted); max-width: 52ch; margin: 0 0 2.5rem; }
-
-    /* Services */
-    .services { margin: 0; }
-    .service {
-      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-      gap: 1rem 3rem; padding-block: 1.5rem; border-top: 2px solid var(--mist);
-    }
-    .service:last-child { border-bottom: 2px solid var(--mist); }
-    .service dt { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.2; }
-    .service dd { margin: 0; color: var(--muted); max-width: 60ch; }
-
-    /* About */
-    .about { background: var(--ink); color: #fff; }
-    .about .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 3rem; }
-    .about h2 { margin: 0; }
-    .about p { margin: 0 0 1.25rem; max-width: 60ch; color: #d3deea; }
-    .about p:last-child { margin-bottom: 0; }
-    .mission { font-family: var(--display); font-size: 1.35rem; line-height: 1.35; color: #fff !important; font-weight: 500; }
-
-    /* Contact */
-    .contact .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
-    .contact p { margin: 0; color: var(--muted); max-width: 46ch; }
-    .contact .btn { background: var(--cobalt); color: #fff; }
-    .contact .btn:hover { background: var(--ink); }
-
-    footer { border-top: 2px solid var(--mist); padding-block: 2rem; color: var(--muted); font-size: 0.95rem; }
-    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; }
-
-    @media (max-width: 760px) {
-      .service, .about .cols { grid-template-columns: 1fr; gap: 0.5rem; }
-      .about .cols { gap: 1.5rem; }
-      section { padding-block: 3.5rem; }
-      .hero h1 { margin-top: 2.5rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
-  <header class="hero">
+  <nav class="site-nav" aria-label="Main">
     <div class="wrap">
-      <nav class="nav" aria-label="Main">
-        <a class="brand" href="#top">
-          <img class="brand-mark" src="Images/Bright_Tech_Solutions_Logo-removebg-preview.png" alt="" aria-hidden="true">
-          <span>Bright Tech Solutions</span>
-        </a>
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="quote.html">Book Us</a></li>
-        </ul>
-      </nav>
+      <a class="brand" href="#top">
+        <span class="brand-mark"><img src="Images/Bright_Tech_Solutions_Logo-removebg-preview.png" alt="" aria-hidden="true"></span>
+        <span>Bright <b>Tech</b> Solutions</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li class="hide-sm"><a href="#about">About</a></li>
+        <li><a class="btn btn-accent" href="quote.html">Book us</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <h1 id="top">Solutions<br>made simple.</h1>
+  <header class="hero" id="top">
+    <div class="wrap hero-inner">
+      <p class="badge"><span class="dot" aria-hidden="true"></span>IT support for growing businesses</p>
+      <h1>Solutions<br><span class="gradient-text">made simple.</span></h1>
       <p class="tagline">Reliable IT. Practical solutions. Better business.</p>
-      <a class="btn" href="#contact">Book a consultation</a>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="quote.html">
+          Book a consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#services">Explore services</a>
+      </div>
 
       <svg class="line" viewBox="0 0 700 180" role="img" aria-label="A tangled network cable straightens, then its connector plugs into an Ethernet port and the connected indicator lights up">
+        <defs>
+          <linearGradient id="cable" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#4fb6ff"/>
+            <stop offset="1" stop-color="#22c7f0"/>
+          </linearGradient>
+        </defs>
         <g transform="translate(0 19)">
-          <rect x="580" y="42" width="110" height="96" rx="8" fill="rgba(7,20,31,0.48)" stroke="#fff" stroke-width="4"/>
-          <path d="M602 66h67v50h-67z" fill="rgba(7,20,31,0.75)" stroke="#fff" stroke-width="3"/>
-          <path d="M613 76h44v21h-44z" fill="#07141f" stroke="#ffc933" stroke-width="2"/>
-          <circle class="connected" cx="665" cy="54" r="6" fill="#ffc933"/>
+          <rect x="580" y="42" width="110" height="96" rx="12" fill="rgba(4,20,39,0.55)" stroke="#7fe0f8" stroke-opacity="0.7" stroke-width="3"/>
+          <path d="M602 66h67v50h-67z" fill="rgba(4,20,39,0.8)" stroke="#fff" stroke-width="3"/>
+          <path d="M613 76h44v21h-44z" fill="#041427" stroke="#22c7f0" stroke-width="2"/>
+          <circle class="connected" cx="665" cy="54" r="6" fill="#22c7f0"/>
+          <circle class="connected" cx="665" cy="54" r="11" fill="#22c7f0" opacity="0.25"/>
         </g>
         <path class="path" pathLength="1" d="M10 110 C 50 10, 100 10, 95 90 C 90 170, 20 150, 70 80 C 120 10, 170 60, 160 110 C 150 170, 110 170, 140 110 C 170 50, 230 70, 240 110 L 572 110"/>
         <g class="plug">
-          <path d="M550 103h16v14h-16z" fill="#0f2a43" stroke="#fff" stroke-width="3"/>
-          <path d="M563 96h39v28h-39z" fill="#0f2a43" stroke="#fff" stroke-width="3"/>
-          <path d="M602 101h20v18h-20z" fill="#ffc933" stroke="#fff" stroke-width="2"/>
+          <path d="M550 103h16v14h-16z" fill="#0b2e5c" stroke="#fff" stroke-width="3"/>
+          <path d="M563 96h39v28h-39z" fill="#0b2e5c" stroke="#fff" stroke-width="3"/>
+          <path d="M602 101h20v18h-20z" fill="#22c7f0" stroke="#fff" stroke-width="2"/>
           <path d="M568 96v-7h22l7 7m-29 28v7h22l7-7" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
-          <g stroke="#ffc933" stroke-width="2">
+          <g stroke="#22c7f0" stroke-width="2">
             <path d="M570 101v16m7-16v16m7-16v16"/>
           </g>
         </g>
       </svg>
+
+      <div class="stats">
+        <div class="stat"><strong>Responsive support</strong><span>Real people who pick up and follow through.</span></div>
+        <div class="stat"><strong>Plain-English advice</strong><span>We explain the why, not just the fix.</span></div>
+        <div class="stat"><strong>Right-sized solutions</strong><span>Technology that fits your business and budget.</span></div>
+      </div>
     </div>
   </header>
 
   <main>
     <section id="services">
       <div class="wrap">
+        <p class="eyebrow">Services</p>
         <h2>What we help with</h2>
         <p class="lede">Technology support for businesses that want things to work and want to understand why.</p>
-        <dl class="services">
-          <div class="service">
-            <dt>IT support &amp; troubleshooting</dt>
-            <dd>We resolve computer, software, and everyday technology issues so your team can get back to work.</dd>
-          </div>
-          <div class="service">
-            <dt>Networking &amp; connectivity</dt>
-            <dd>We set up and support your network and Wi-Fi, so your business communications stay reliable.</dd>
-          </div>
-          <div class="service">
-            <dt>Technology security</dt>
-            <dd>We help you improve device security, protect your data, and build safe technology habits.</dd>
-          </div>
-          <div class="service">
-            <dt>Cloud &amp; technology solutions</dt>
-            <dd>We help you choose and set up cloud tools and software, and make practical improvements to how you work.</dd>
-          </div>
-          <div class="service">
-            <dt>IT consulting &amp; technology setup</dt>
-            <dd>We recommend and configure technology that fits your business needs and goals.</dd>
-          </div>
-        </dl>
+        <ul class="services">
+          <li class="service reveal">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span>
+            <h3>IT support &amp; troubleshooting</h3>
+            <p>We resolve computer, software, and everyday technology issues so your team can get back to work.</p>
+          </li>
+          <li class="service reveal">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg></span>
+            <h3>Networking &amp; connectivity</h3>
+            <p>We set up and support your network and Wi-Fi, so your business communications stay reliable.</p>
+          </li>
+          <li class="service reveal">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span>
+            <h3>Technology security</h3>
+            <p>We help you improve device security, protect your data, and build safe technology habits.</p>
+          </li>
+          <li class="service reveal">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 9.5z"/></svg></span>
+            <h3>Cloud &amp; technology solutions</h3>
+            <p>We help you choose and set up cloud tools and software, and make practical improvements to how you work.</p>
+          </li>
+          <li class="service reveal">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+            <h3>IT consulting &amp; technology setup</h3>
+            <p>We recommend and configure technology that fits your business needs and goals.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section id="about" class="about">
       <div class="wrap cols">
         <div>
-          <h2>About us</h2>
+          <p class="eyebrow">About us</p>
+          <h2>Technology should make business easier.</h2>
+          <ul class="values">
+            <li>Honest communication</li>
+            <li>Reliable service</li>
+            <li>Solutions tailored to you</li>
+          </ul>
         </div>
-        <div>
+        <div class="reveal">
           <p class="mission">Our mission is to simplify technology with dependable IT solutions, responsive support, and personalized service.</p>
           <p>Bright Tech Solutions LLC was founded on the belief that technology should make business easier, not more complicated. We help businesses work through technology challenges with practical solutions, dependable support, and a customer-first approach.</p>
           <p>From everyday IT needs to better connectivity and protecting important information, our goal is to make technology work better for every customer we serve.</p>
@@ -218,24 +132,45 @@
       </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact">
       <div class="wrap">
-        <div>
-          <h2>Book a consultation</h2>
-          <p>Tell us what your business needs, and we’ll recommend a practical solution and provide a quote.</p>
+        <div class="cta reveal">
+          <div>
+            <h2>Book a consultation</h2>
+            <p>Tell us what your business needs, and we’ll recommend a practical solution and provide a quote.</p>
+          </div>
+          <a class="btn btn-accent" href="quote.html">
+            Book here
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
-        <!-- TODO: replace this placeholder with your real business email -->
-        <a class="btn" href="quote.html">Book Here</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <span>© 2026 Bright Tech Solutions LLC</span>
-      <span>Solutions made simple.</span>
+      <a class="brand" href="#top">
+        <span class="brand-mark"><img src="Images/Bright_Tech_Solutions_Logo-removebg-preview.png" alt="" aria-hidden="true"></span>
+        <span>Bright Tech Solutions LLC</span>
+      </a>
+      <span>© <span id="year">2026</span> Bright Tech Solutions LLC · Solutions made simple.</span>
     </div>
   </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const revealEls = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) { entry.target.classList.add("is-visible"); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach((el, i) => { el.style.transitionDelay = `${(i % 3) * 80}ms`; io.observe(el); });
+    } else {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+    }
+  </script>
 </body>
 </html>
